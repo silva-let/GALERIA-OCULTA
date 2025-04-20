@@ -5,6 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obrigado Gatinho - VIP</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans:wght@400;600&display=swap">
+    
+    <!-- Seu pixel de conversão aqui: -->
+    <!-- Pixel do Facebook configurado para registrar uma compra (Purchase) quando a página é visualizada (PageView), com controle de duplicatas -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      
+      fbq('init', '1006209331142069'); // Substitua por seu ID de pixel
+      
+      // Registra o PageView (visualização da página)
+      fbq('track', 'PageView');
+
+      // Considera que o PageView é o mesmo que uma compra (Purchase)
+      // Verifica se já registramos essa compra para evitar duplicação
+      if (!localStorage.getItem('purchase_tracked')) {
+        fbq('track', 'Purchase', {
+          value: 180.00, // Substitua pelo valor da compra
+          currency: 'BRL' // Substitua pela moeda (ex.: USD, BRL)
+        });
+        // Faz uma anotação no localStorage para lembrar que já registramos a compra
+        localStorage.setItem('purchase_tracked', 'true');
+      }
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none" 
+           src="https://www.facebook.com/tr?id=1006209331142069&ev=PageView&noscript=1"/>
+    </noscript>
+    
     <style>
         * {
             margin: 0;
