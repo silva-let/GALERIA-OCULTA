@@ -27,7 +27,7 @@
       // Verifica se já registramos essa compra para evitar duplicação
       if (!localStorage.getItem('purchase_tracked')) {
         fbq('track', 'Purchase', {
-          value: 180.00, // Substitua pelo valor da compra
+          value: 150.00, // Substitua pelo valor da compra
           currency: 'BRL' // Substitua pela moeda (ex.: USD, BRL)
         });
         // Faz uma anotação no localStorage para lembrar que já registramos a compra
